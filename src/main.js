@@ -1,5 +1,4 @@
 import { getImages } from './js/pixabay-api';
-import { getImagesTest } from './js/pixabay-api';
 import { getGalleryMarkdown, drawGallery } from './js/render-functions';
 import SimpleLightbox from 'simplelightbox';
 // Додатковий імпорт стилів
@@ -7,6 +6,10 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import iziToast from 'izitoast';
 // Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
+
+const refs = {
+  loader: document.querySelector('.js-loader'),
+};
 
 const iziCommon = {
   message: 'Common message',
@@ -66,10 +69,13 @@ function searchButtonHandler(event) {
     return;
   }
 
-  console.log(`fetch data from backend with search term: ${searchTerm}`);
-  drawGallery(myGallery, loadMessageMarkdown);
+  //console.log(`fetch data from backend with search term: ${searchTerm}`);
+  refs.loader.classList.add('is-active');
 
   getImages(searchTerm)
+    .finally(() => {
+      refs.loader.classList.remove('is-active');
+    })
     .then(images => {
       if (images.hits.length === 0) {
         iziToast.error({

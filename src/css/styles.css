@@ -24,10 +24,14 @@ body {
 }
 
 .loader {
-  display: block;
+  display: none;
   text-align: center;
   width: 100%;
   animation: blinker 1.25s linear infinite;
+}
+
+.loader.is-active {
+  display: block;
 }
 
 @keyframes blinker {

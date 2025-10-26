@@ -23,7 +23,7 @@ body {
   color: #2e2f42;
 }
 
-.load-message {
+.loader {
   display: block;
   text-align: center;
   width: 100%;
@@ -36,7 +36,7 @@ body {
   }
 }
 
-.search-form {
+.form {
   margin: 36px auto 32px auto;
   width: 400px;
 }

@@ -35,7 +35,7 @@ const iziWarning = {
 };
 
 const loadMessageMarkdown =
-  '<li class="load-message">Loading images, please wait...</li>';
+  '<span class="loader">Loading images, please wait...</span>';
 const myGallery = document.querySelector('.gallery');
 const searchButton = document.querySelector('.search-button');
 const searchInput = document.querySelector('.search-input');
